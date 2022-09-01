@@ -1,0 +1,21 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "zoneConfig": {
+      "header": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=header&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fdiscovery%2Fartworks%2Fmeta&ref=www.pixiv.net%2Fdiscovery&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yj5ez36k44u2jc&num=6318cd9e643"
+      },
+      "footer": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=footer&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fdiscovery%2Fartworks%2Fmeta&ref=www.pixiv.net%2Fdiscovery&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yj5ez39nswm49o&num=6318cd9e441"
+      },
+      "logo": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=logo_side&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fdiscovery%2Fartworks%2Fmeta&ref=www.pixiv.net%2Fdiscovery&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yj5ez3cbb82ve2&num=6318cd9e864"
+      }
+    },
+    "meta": {
+      "title": "[pixiv] ディスカバリー",
+      "description": false
+    }
+  }
+}

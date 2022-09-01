@@ -1,0 +1,41 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "page": {
+      "total": "0",
+      "maxPage": 1,
+      "watchedSeriesIds": []
+    },
+    "zoneConfig": {
+      "header": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=header&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fwatch_list%2Fmanga&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zmaxawaei6gqfh&num=631a0b1d490"
+      },
+      "footer": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=footer&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fwatch_list%2Fmanga&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zmaxawedlyt6cr&num=631a0b1d781"
+      },
+      "logo": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=logo_side&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fwatch_list%2Fmanga&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zmaxawhpkhrtkn&num=631a0b1d229"
+      }
+    },
+    "extraData": {
+      "meta": {
+        "title": "マンガウォッチリスト - pixiv",
+        "description": "pixiv(ピクシブ)は、イラスト・マンガ・小説の投稿や閲覧が楽しめるサービスです。",
+        "canonical": "https://www.pixiv.net/following/watchlist/manga",
+        "ogp": false,
+        "twitter": false
+      }
+    },
+    "tagTranslation": [],
+    "thumbnails": {
+      "illust": [],
+      "novel": [],
+      "novelSeries": [],
+      "novelDraft": []
+    },
+    "illustSeries": [],
+    "requests": [],
+    "users": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "page": {
+      "user": {
+        "id": "43192924",
+        "name": "atarakima1",
+        "comment": "",
+        "profileImageUrl": "https://i.pximg.net/user-profile/img/2022/08/28/02/45/18/23252304_8aacb194299942725f0a90bf8a14a290_170.jpg",
+        "followerCount": 0,
+        "linkState": "disconnected",
+        "updateDatetime": null,
+        "enableCustomProfile": false,
+        "customProfile": null,
+        "profileImageConfigured": true,
+        "meta": {
+          "f0": false
+        }
+      },
+      "works": [],
+      "totalItemCount": 0
+    },
+    "tagTranslation": [],
+    "thumbnails": {
+      "illust": [],
+      "novel": [],
+      "novelSeries": [],
+      "novelDraft": []
+    },
+    "illustSeries": [],
+    "requests": [],
+    "users": []
+  }
+}

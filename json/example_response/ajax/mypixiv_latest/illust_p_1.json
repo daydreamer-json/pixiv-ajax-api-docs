@@ -1,0 +1,32 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "page": {
+      "ids": [],
+      "isLastPage": true,
+      "tags": []
+    },
+    "zoneConfig": {
+      "header": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=header&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fmypixiv_latest%2Fillust&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zq812828g7aw6f&num=631a2ae6533"
+      },
+      "footer": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=footer&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fmypixiv_latest%2Fillust&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zq81285n7xelf8&num=631a2ae6370"
+      },
+      "logo": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=logo_side&format=js&s=1&up=0&a=26&ng=w&l=ja&uri=%2Fajax%2Fmypixiv_latest%2Fillust&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5zq812889a9s92g&num=631a2ae669"
+      }
+    },
+    "tagTranslation": [],
+    "thumbnails": {
+      "illust": [],
+      "novel": [],
+      "novelSeries": [],
+      "novelDraft": []
+    },
+    "illustSeries": [],
+    "requests": [],
+    "users": []
+  }
+}

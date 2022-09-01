@@ -1,0 +1,27 @@
+{
+  "error": false,
+  "body": {
+    "tag": "原神",
+    "word": "原神",
+    "pixpedia": {
+      "abstract": "「原神」とは、miHoYoが制作・リリースした新世代オープンワールド型RPGである。旅人は生き別れた兄妹を探すため、「テイワット」と呼ばれる広大な大陸を冒険する。また、広くは知られていないが崩壊シリーズのスピンオフである。",
+      "image": "https://i.pximg.net/c/384x280_80_a2_g2/img-master/img/2021/09/28/15/32/22/93077711_p0_master1200.jpg",
+      "id": "93077711",
+      "yomigana": "げんしん",
+      "parentTag": "ゲーム",
+      "childrenTags": [
+        "GenshinImpact"
+      ]
+    },
+    "breadcrumbs": {
+      "successor": [],
+      "current": []
+    },
+    "myFavoriteTags": [],
+    "tagTranslation": {
+      "原神": {
+        "romaji": "gennshinn"
+      }
+    }
+  }
+}

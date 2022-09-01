@@ -1,0 +1,16 @@
+{
+  "error": false,
+  "message": "",
+  "body": [
+    {
+      "urls": {
+        "thumb_mini": "https://i.pximg.net/c/128x128/img-master/img/2022/08/11/23/46/14/100412238_p0_square1200.jpg",
+        "small": "https://i.pximg.net/c/540x540_70/img-master/img/2022/08/11/23/46/14/100412238_p0_master1200.jpg",
+        "regular": "https://i.pximg.net/img-master/img/2022/08/11/23/46/14/100412238_p0_master1200.jpg",
+        "original": "https://i.pximg.net/img-original/img/2022/08/11/23/46/14/100412238_p0.png"
+      },
+      "width": 2476,
+      "height": 3541
+    }
+  ]
+}

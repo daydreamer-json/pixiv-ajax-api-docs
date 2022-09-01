@@ -1,0 +1,19 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "userId": "9153585",
+    "name": "haku89",
+    "image": "https://i.pximg.net/user-profile/img/2018/06/26/14/26/03/14408330_3de67ff59732d611d71369bddd8ea287_50.jpg",
+    "imageBig": "https://i.pximg.net/user-profile/img/2018/06/26/14/26/03/14408330_3de67ff59732d611d71369bddd8ea287_170.jpg",
+    "premium": true,
+    "isFollowed": false,
+    "isMypixiv": false,
+    "isBlocking": false,
+    "background": null,
+    "sketchLiveId": null,
+    "partial": 0,
+    "acceptRequest": false,
+    "sketchLives": []
+  }
+}

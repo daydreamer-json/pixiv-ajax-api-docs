@@ -1,0 +1,23 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "data": {
+      "works": [],
+      "series": [],
+      "drafts": [],
+      "reservedWorks": [],
+      "fetchRanges": []
+    },
+    "tagTranslation": [],
+    "thumbnails": {
+      "illust": [],
+      "novel": [],
+      "novelSeries": [],
+      "novelDraft": []
+    },
+    "illustSeries": [],
+    "requests": [],
+    "users": []
+  }
+}

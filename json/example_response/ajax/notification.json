@@ -1,0 +1,39 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "items": [
+      {
+        "id": "426403295",
+        "type": "fanbox_newbie",
+        "unread": false,
+        "notifiedAt": "2022-09-05T01:49:10+09:00",
+        "linkUrl": "/fanbox/creator/16691139?utm_campaign=plan_published&utm_medium=notification&utm_source=pixiv",
+        "iconUrl": "https://i.pximg.net/user-profile/img/2021/09/03/04/11/33/21346343_e9913a7ad17fc8173bf2b429ca583c7f_50.jpg",
+        "targetBlank": true,
+        "isProfileIcon": true,
+        "content": "<span>かるかるめ</span>さんがpixivFANBOXで支援の受け付けを開始しました！"
+      }
+    ],
+    "remaining_unread_count": 0,
+    "imageResponseCount": 0,
+    "quotationCount": 0,
+    "isNotAuthorized": false,
+    "filter": {
+      "reactions": [
+        "bookmarked",
+        "nice",
+        "emoji",
+        "commented",
+        "tagged",
+        "content_response",
+        "favorited",
+        "group_content_reference",
+        "group_like",
+        "group_comment",
+        "received_stacc_message",
+        "series_watchlist_watched"
+      ]
+    }
+  }
+}

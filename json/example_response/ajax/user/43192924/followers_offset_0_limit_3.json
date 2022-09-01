@@ -1,0 +1,73 @@
+{
+  "error": false,
+  "message": "",
+  "body": {
+    "users": [
+      {
+        "userId": "54449001",
+        "userName": "フェネック＆キタキツネ",
+        "profileImageUrl": "https://s.pximg.net/common/images/no_profile.png",
+        "userComment": "",
+        "following": true,
+        "followed": true,
+        "isBlocking": false,
+        "isMypixiv": false,
+        "illusts": [],
+        "novels": [],
+        "acceptRequest": false
+      },
+      {
+        "userId": "81857428",
+        "userName": "おさかな",
+        "profileImageUrl": "https://s.pximg.net/common/images/no_profile.png",
+        "userComment": "",
+        "following": true,
+        "followed": true,
+        "isBlocking": false,
+        "isMypixiv": false,
+        "illusts": [],
+        "novels": [],
+        "acceptRequest": false
+      }
+    ],
+    "total": 4,
+    "zoneConfig": {
+      "header": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=header&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fuser%2F_PARAM_%2Ffollowers&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yls83909p0uuf&num=6318e2f9847"
+      },
+      "footer": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=footer&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fuser%2F_PARAM_%2Ffollowers&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yls8395kiohxmv&num=6318e2f9472"
+      },
+      "logo": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=logo_side&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fuser%2F_PARAM_%2Ffollowers&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yls839aj96onli&num=6318e2f9328"
+      },
+      "500x500": {
+        "url": "https://pixon.ads-pixiv.net/show?zone_id=bigbanner&format=js&s=1&up=0&a=26&ng=g&l=ja&uri=%2Fajax%2Fuser%2F_PARAM_%2Ffollowers&ref=www.pixiv.net&is_spa=1&K=5e2731cdf5bcc&ab_test_digits_first=59&uab=88&yuid=N4JDIRc&suid=Ph5yls839f02sb3jt&num=6318e2f996"
+      }
+    },
+    "extraData": {
+      "meta": {
+        "title": "atarakima1のフォロワー - pixiv",
+        "description": "pixiv",
+        "canonical": "https://www.pixiv.net/users/43192924",
+        "ogp": {
+          "description": "",
+          "image": "https://i.pximg.net/c/200x200/user-profile/img/2022/08/28/02/45/18/23252304_8aacb194299942725f0a90bf8a14a290_170.jpg",
+          "title": "atarakima1のフォロワー",
+          "type": "article"
+        },
+        "twitter": {
+          "description": "",
+          "image": "https://i.pximg.net/c/200x200/user-profile/img/2022/08/28/02/45/18/23252304_8aacb194299942725f0a90bf8a14a290_170.jpg",
+          "title": "atarakima1のフォロワー",
+          "card": "summary"
+        },
+        "alternateLanguages": {
+          "ja": "https://www.pixiv.net/users/43192924",
+          "en": "https://www.pixiv.net/en/users/43192924"
+        },
+        "descriptionHeader": ""
+      }
+    }
+  }
+}
