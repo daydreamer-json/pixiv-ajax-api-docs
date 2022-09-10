@@ -2,8 +2,6 @@
 
 The details of the pixiv ajax API are shown below.
 
-**I'm still not done researching the API. I am in the process of writing.**
-
 ---
 
 **Table of contents**
