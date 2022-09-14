@@ -2,6 +2,8 @@
 
 The details of the pixiv ajax API are shown below.
 
+OpenAPI Documents --> *Coming soon*
+
 ---
 
 **Table of contents**
@@ -11,7 +13,9 @@ The details of the pixiv ajax API are shown below.
   * [Ajax API Base URL](#ajax-api-base-url)
   * [CORS](#cors)
   * [Authorization](#authorization)
-    + [Authorization Method](#authorization-method)
+    + [Authorization Method 1 (best)](#authorization-method-1-best)
+    + [Authorization Method 2](#authorization-method-2)
+    + [Authorization Method 3](#authorization-method-3)
   * [Top Page](#top-page)
     + [Get top page artworks](#get-top-page-artworks)
   * [User Information](#user-information)
