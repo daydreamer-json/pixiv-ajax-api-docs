@@ -572,23 +572,23 @@ components:
                         pattern: ^[0-9]{2-9}$
                     details:
                       type: object
-                        patternProperties:
-                          ^[0-9]{2-9}$:
-                            type: object
-                            required:
-                              - methods
-                              - score
-                              - seedIllustIds
-                            properties:
-                              methods:
-                                type: array
-                                items:
-                                  type: string
-                              score:
-                                type: number
-                              seedIllustIds:
+                      patternProperties:
+                        ^[0-9]{2-9}$:
+                          type: object
+                          required:
+                            - methods
+                            - score
+                            - seedIllustIds
+                          properties:
+                            methods:
+                              type: array
+                              items:
                                 type: string
-                                pattern: ^[0-9]{2,9}$
+                            score:
+                              type: number
+                            seedIllustIds:
+                              type: string
+                              pattern: ^[0-9]{2,9}$
                 recommendByTag:
                   type: array
                   items:
@@ -762,6 +762,153 @@ components:
                   items:
                     type: string
                     pattern: ^[0-9]{2,9}$
+                trendingTags:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - tag
+                      - trendingRate
+                      - ids
+                    properties:
+                      tag:
+                        type: string
+                      trendingRate:
+                        type: number
+                      ids:
+                        type: array
+                        items:
+                          type: number
+                completeRequestIds:
+                  type: array
+                  items:
+                    type: string
+                    format: ^[0-9]$
+                userEventIds:
+                  type: array
+                  items:
+                    type: string
+                    format: ^[0-9]{2,9}$
+            boothItems:
+              type: array
+              items:
+                type: object
+                required:
+                  - id
+                  - userId
+                  - title
+                  - url
+                  - imageUrl
+                  - adult
+                properties:
+                  id:
+                    type: string
+                    pattern: ^[0-9]$
+                  userId:
+                    type: string
+                    pattern: ^[0-9]$
+                  title:
+                    type: string
+                  url:
+                    type: string
+                    format: url
+                  imageUrl:
+                    type: string
+                    format: url
+                  adult:
+                    type: boolean
+                    default: false
+            sketchLives:
+              type: array
+              items:
+                type: object
+                required:
+                  - id
+                  - name
+                  - url
+                  - thumbnailUrl
+                  - audienceCount
+                  - isR18
+                  - streamerIds
+                properties:
+                  id:
+                    type: string
+                    pattern: ^[0-9]$
+                  name:
+                    type: string
+                  url:
+                    type: string
+                    format: url
+                  thumbnailUrl:
+                    type: string
+                    format: url
+                  audienceCount:
+                    type: number
+                  isR18:
+                    type: boolean
+                    default: false
+                  streamerIds:
+                    type: array
+                    items:
+                      type: number
+            zoneConfig:
+              type: object
+              required:
+                - logo
+                - header
+                - footer
+                - topbranding_rectangle
+                - comic
+                - illusttop_appeal
+              properties:
+                logo:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                header:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                footer:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                topbranding_rectangle:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                comic:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                illusttop_appeal:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
 tags:
   - name: Top page
     description: Get the information in the top page.
