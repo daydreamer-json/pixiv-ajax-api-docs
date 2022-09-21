@@ -461,9 +461,310 @@ components:
                             default: false
                           secret:
                             type: null
+            users:
+              type: array
+              items:
+                type: object
+                required:
+                  - partial
+                  - comment
+                  - followedBack
+                  - userId
+                  - name
+                  - image
+                  - imageBig
+                  - premium
+                  - isFollowed
+                  - isMypixiv
+                  - isBlocking
+                  - background
+                  - acceptRequest
+                properties:
+                  partial:
+                    type: number
+                    default: 0
+                  comment:
+                    type: string
+                  followedBack:
+                    type: boolean
+                    default: false
+                  userId:
+                    type: string
+                    pattern: ^[0-9]$
+                  name:
+                    type: string
+                  image:
+                    type: string
+                    format: url
+                  imageBig:
+                    type: string
+                    format: url
+                  premium:
+                    type: boolean
+                    default: false
+                  isFollowed:
+                    type: boolean
+                    default: false
+                  isMypixiv:
+                    type: boolean
+                    default: false
+                  isBlocking:
+                    type: boolean
+                    default: false
+                  background:
+                    type: null
+                  acceptRequest:
+                    type: boolean
+                    default: false
+            page:
+              type: object
+              required:
+                - tags
+                - follow
+                - mypixiv
+                - recommend
+                - recommendByTag
+                - ranking
+                - pixivision
+                - recommendUser
+                - contestOngoing
+                - contestResult
+                - editorRecommend
+                - boothFollowItemIds
+                - sketchLiveFollowIds
+                - sketchLivePopularIds
+                - myFavoriteTags
+                - newPost
+                - trendingTags
+                - completeRequestIds
+                - userEventIds
+              properties:
+                tags:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - tag
+                      - ids
+                    properties:
+                      tag:
+                        type: string
+                      ids:
+                        type: array
+                        items:
+                          type: number
+                follow:
+                  type: array
+                  items:
+                    type: number
+                mypixiv:
+                  type: array
+                recommend:
+                  type: object
+                  required:
+                    - ids
+                    - details
+                  properties:
+                    ids:
+                      type: array
+                      items:
+                        type: string
+                        pattern: ^[0-9]{2-9}$
+                    details:
+                      type: object
+                        patternProperties:
+                          ^[0-9]{2-9}$:
+                            type: object
+                            required:
+                              - methods
+                              - score
+                              - seedIllustIds
+                            properties:
+                              methods:
+                                type: array
+                                items:
+                                  type: string
+                              score:
+                                type: number
+                              seedIllustIds:
+                                type: string
+                                pattern: ^[0-9]{2,9}$
+                recommendByTag:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - tag
+                      - ids
+                      - details
+                    properties:
+                      tag:
+                        type: string
+                      ids:
+                        type: array
+                        items:
+                          type: string
+                          pattern: ^[0-9]{2,9}$
+                      details:
+                        type: object
+                        patternProperties:
+                          ^[0-9]{2-9}$:
+                            type: object
+                            required:
+                              - methods
+                              - score
+                              - seedIllustIds
+                            properties:
+                              methods:
+                                type: array
+                                items:
+                                  type: string
+                              score:
+                                type: number
+                              seedIllustIds:
+                                type: array
+                                items:
+                                  type: null
+                ranking:
+                  type: object
+                  required:
+                    - items
+                    - date
+                  properties:
+                    items:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                          - rank
+                          - id
+                        properties:
+                          rank:
+                            type: string
+                            pattern: ^[0-9]$
+                          id:
+                            type: string
+                            pattern: ^[0-9]{2,9}$
+                    date:
+                      type: string
+                pixivision:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - title
+                      - thumbnailUrl
+                      - url
+                    properties:
+                      id:
+                        type: string
+                        pattern: ^[0-9]$
+                      title:
+                        type: string
+                      thumbnailUrl:
+                        type: string
+                        format: url
+                      url:
+                        type: string
+                        format: url
+                recommendUser:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - illustIds
+                      - novelIds
+                    properties:
+                      id:
+                        type: string
+                        pattern: ^[0-9]$
+                      illustIds:
+                        type: array
+                        items:
+                          type: string
+                          pattern: ^[0-9]{2,9}$
+                      novelIds:
+                        type: array
+                        items:
+                          type: string
+                          pattern: ^[0-9]$
+                contestOngoing:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - slug
+                      - type
+                      - name
+                      - url
+                      - iconUrl
+                      - workIds
+                      - isNew
+                    properties:
+                      slug:
+                        type: string
+                      type:
+                        type: string
+                      name:
+                        type: string
+                      url:
+                        type: string
+                        format: url
+                      iconUrl:
+                        type: string
+                        format: url
+                      workIds:
+                        type: array
+                        items:
+                          type: number
+                      isNew:
+                        type: boolean
+                contestResult:
+                  type: array
+                  items:
+                    type: null
+                editorRecommend:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - illustId
+                      - comment
+                    properties:
+                      illustId:
+                        type: string
+                        pattern: ^[0-9]{2,9}$
+                      comment:
+                        type: string
+                boothFollowItemIds:
+                  type: array
+                  items:
+                    type: string
+                    pattern: ^[0-9]$
+                sketchLiveFollowIds:
+                  type: array
+                  items:
+                    type: string
+                    pattern: ^[0-9]$
+                sketchLivePopularIds:
+                  type: array
+                  items:
+                    type: string
+                    pattern: ^[0-9]$
+                myFavoriteTags:
+                  type: array
+                  items:
+                    type: string
+                newPost:
+                  type: array
+                  items:
+                    type: string
+                    pattern: ^[0-9]{2,9}$
 tags:
   - name: Top page
-    description: Get the information in the top page
+    description: Get the information in the top page.
 paths:
   /ajax/top/illust:
     get:
@@ -499,7 +800,7 @@ paths:
               - r18
       responses:
         '200':
-          description: A JSON of basic response
+          description: A JSON of normal response
           content:
             application/json:
               schema:
