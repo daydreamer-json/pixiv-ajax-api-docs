@@ -997,6 +997,196 @@ components:
               type: array
               items:
                 type: null
+    user_info_full:
+      type: object
+      required:
+        - error
+        - message
+        - body
+      properties:
+        error:
+          type: boolean
+          enum:
+            - false
+        message:
+          type: string
+          enum:
+            - ""
+        body:
+          type: object
+          required:
+            - userId
+            - name
+            - image
+            - imageBig
+            - premium
+            - isFollowed
+            - isMypixiv
+            - isBlocking
+            - background
+            - sketchLiveId
+            - partial
+            - acceptRequest
+            - sketchLives
+            - following
+            - followedBack
+            - comment
+            - commentHtml
+            - webpage
+            - social
+            - canSendMessage
+            - region
+            - age
+            - birthDay
+            - gender
+            - job
+            - workspace
+            - official
+            - group
+          properties:
+            userId:
+              type: string
+              pattern: ^[0-9]$
+            name:
+              type: string
+            image:
+              type: string
+              format: url
+            imageBig:
+              type: string
+              format: url
+            premium:
+              type: boolean
+              default: false
+            isFollowed:
+              type: boolean
+              default: false
+            isMypixiv:
+              type: boolean
+              default: false
+            isBlocking:
+              type: boolean
+              default: false
+            background:
+              type: null
+            sketchLiveId:
+              type: null
+            partial:
+              type: number
+            acceptRequest:
+              type: boolean
+              default: false
+            sketchLives:
+              type: array
+              items:
+                type: null
+            following:
+              type: number
+            followedBack:
+              type: boolean
+              default: false
+            comment:
+              type: string
+            commentHtml:
+              type: string
+            webpage:
+              type: null
+            social:
+              type: object
+              properties:
+                twitter:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+            canSendMessage:
+              type: boolean
+            region:
+              type: object
+              properties:
+                name:
+                  type: string
+                region:
+                  type: string
+                prefecture:
+                  type: string
+                privacyLevel:
+                  type: string
+                  pattern: ^[0-9]$
+            age:
+              type: object
+              properties:
+                name:
+                  type: string
+                privacyLevel:
+                  type: string
+                  pattern: ^[0-9]$
+            birthDay:
+              type: object
+              properties:
+                name:
+                  type: string
+                privacyLevel:
+                  type: string
+                  pattern: ^[0-9]$
+            gender:
+              type: object
+              properties:
+                name:
+                  type: string
+                privacyLevel:
+                  type: string
+                  pattern: ^[0-9]$
+            job:
+              type: object
+              properties:
+                name:
+                  type: string
+                privacyLevel:
+                  type: string
+                  pattern: ^[0-9]$
+            workspace:
+              type: object
+              properties:
+                userWorkspacePc:
+                  type: string
+                userWorkspaceTool:
+                  type: string
+                userWorkspaceTablet:
+                  type: string
+                userWorkspaceMouse:
+                  type: string
+                userWorkspaceDesktop:
+                  type: string
+                userWorkspaceMusic:
+                  type: string
+                userWorkspaceDesk:
+                  type: string
+                userWorkspaceChair:
+                  type: string
+            official:
+              type: boolean
+              default: false
+            group:
+              type: array
+              items:
+                type: object
+                required:
+                  - id
+                  - title
+                  - iconUrl
+                properties:
+                  id:
+                    type: string
+                    pattern: ^[0-9]$
+                  title:
+                    type: string
+                  iconUrl:
+                    type: string
+                    format: url
 tags:
   - name: Top page
     description: Get the information in the top page.
@@ -1086,6 +1276,50 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/user_info_short'
+        '403':
+          description: A JSON of error 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_403'
+        '404':
+          description: A JSON of error 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_404_user'
+  /ajax/top/user/{USER_ID}?full=1:
+    get:
+      tags:
+        - User Information
+      summary: Get user information (full)
+      description: Get full user information.
+      parameters:
+        - name: Referer
+          in: header
+          description: HTTP Referer Header
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: string
+            enum:
+              - https://www.pixiv.net/
+        - name: USER_ID
+          in: path
+          description: pixiv User ID
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A JSON of normal response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user_info_full'
         '403':
           description: A JSON of error 403 response
           content:
