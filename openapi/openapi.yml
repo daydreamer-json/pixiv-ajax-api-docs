@@ -68,6 +68,26 @@ components:
           type: array
           items:
             type: null
+    error_404_user:
+      type: object
+      required:
+        - error
+        - message
+        - body
+      properties:
+        error:
+          type: boolean
+          enum:
+            - true
+        message:
+          type: string
+          enum:
+            - リクエストされたページが見つかりませんでした
+            - 該当ユーザーは既に退会したか、存在しないユーザーIDです。
+        body:
+          type: array
+          items:
+            type: null
     top_page_artworks:
       type: object
       required:
@@ -909,9 +929,79 @@ components:
                     url:
                       type: string
                       format: url
+    user_info_short:
+      type: object
+      required:
+        - error
+        - message
+        - body
+      properties:
+        error:
+          type: boolean
+          enum:
+            - false
+        message:
+          type: string
+          enum:
+            - ""
+        body:
+          type: object
+          required:
+            - userId
+            - name
+            - image
+            - imageBig
+            - premium
+            - isFollowed
+            - isMypixiv
+            - isBlocking
+            - background
+            - sketchLiveId
+            - partial
+            - acceptRequest
+            - sketchLives
+          properties:
+            userId:
+              type: string
+              pattern: ^[0-9]$
+            name:
+              type: string
+            image:
+              type: string
+              format: url
+            imageBig:
+              type: string
+              format: url
+            premium:
+              type: boolean
+              default: false
+            isFollowed:
+              type: boolean
+              default: false
+            isMypixiv:
+              type: boolean
+              default: false
+            isBlocking:
+              type: boolean
+              default: false
+            background:
+              type: null
+            sketchLiveId:
+              type: null
+            partial:
+              type: number
+            acceptRequest:
+              type: boolean
+              default: false
+            sketchLives:
+              type: array
+              items:
+                type: null
 tags:
   - name: Top page
     description: Get the information in the top page.
+  - name: User Information
+    description: Get user information in various formats.
 paths:
   /ajax/top/illust:
     get:
@@ -964,3 +1054,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_404'
+  /ajax/top/user/{USER_ID}:
+    get:
+      tags:
+        - User Information
+      summary: Get user information (short)
+      description: Get user information in a simplified format.
+      parameters:
+        - name: Referer
+          in: header
+          description: HTTP Referer Header
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: string
+            enum:
+              - https://www.pixiv.net/
+        - name: USER_ID
+          in: path
+          description: pixiv User ID
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A JSON of normal response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/user_info_short'
+        '403':
+          description: A JSON of error 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_403'
+        '404':
+          description: A JSON of error 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_404_user'
