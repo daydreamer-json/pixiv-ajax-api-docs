@@ -9,6 +9,34 @@ info:
     This document was created and published for research purposes only. This
     document is unofficial and in no way affiliated with pixiv. Misuse of the
     API by this document is prohibited.
+
+    ## CORS
+
+    The pixiv Ajax API **does probably not support CORS** and there is no `Access-Control-Allow-Origin` in the HTTP header of the response.  Therefore, to use the pixiv Ajax API **in a web browser**, **you must use a proxy that provides CORS headers.**
+
+    ## Authorization
+    
+    Authorization is required to use some parameters of the pixiv Ajax API. 
+
+    ### Authorization Method 1 (best)
+
+    The best authorization method is to use Method 2 and Method 3 together.
+
+    ### Authorization Method 2
+
+    First, log in to pixiv with a browser and get the Cookie data. Then, add the saved Cookie data to the request header to the API and send. (`Cookie: {RAW_COOKIE_DATA}`) 
+
+    Cookie data can be obtained using Chrome/Firefox developer tools. For iOS, you can use [Proxyman](https://apps.apple.com/jp/app/id1551292695) to get the Cookie data.
+
+    There are some endpoints that cannot be used by this method alone. For example, the endpoint that uses the `POST`.
+
+    ### Authorization Method 3
+
+    First, log in to pixiv with a browser and get the `x-csrf-token` data. Then, add the saved `x-csrf-token` data to the request header to the API and send. (`x-csrf-token: {X-CSRF-TOKEN}`)
+
+    `x-csrf-token` data can be obtained using Chrome/Firefox developer tools. For iOS, you can use [Proxyman](https://apps.apple.com/jp/app/id1551292695) to get the `x-csrf-token` data.
+
+    There are some endpoints that cannot be used by this method alone.
   termsOfService: https://policies.pixiv.net/
   contact:
     name: daydreamer-json
@@ -929,7 +957,7 @@ components:
                     url:
                       type: string
                       format: url
-    ajax_top_user_short:
+    ajax_user_short:
       type: object
       required:
         - error
@@ -997,7 +1025,7 @@ components:
               type: array
               items:
                 nullable: true
-    ajax_top_user_full:
+    ajax_user_full:
       type: object
       required:
         - error
@@ -1187,7 +1215,7 @@ components:
                   iconUrl:
                     type: string
                     format: url
-    ajax_top_user_focus_on_artwork:
+    ajax_user_focus_on_artwork:
       type: object
       required:
         - error
@@ -1512,7 +1540,7 @@ components:
                       type: array
                       items:
                         nullable: true
-    ajax_top_user_following:
+    ajax_user_following:
       type: object
       required:
         - error
@@ -1551,6 +1579,7 @@ components:
                   - isMypixiv
                   - illusts
                   - novels
+                  - acceptRequest
                 properties:
                   userId:
                     type: string
@@ -1578,6 +1607,7 @@ components:
                     type: array
                     items:
                       type: object
+                      nullable: true
                       required:
                         - id
                         - title
@@ -1672,6 +1702,9 @@ components:
                     type: array
                     items:
                       nullable: true
+                  acceptRequest:
+                    type: boolean
+                    default: false
             total:
               type: number
             followUserTags:
@@ -1789,6 +1822,404 @@ components:
                           format: url
                     descriptionHeader:
                       type: string
+    ajax_user_followers:
+      type: object
+      required:
+        - error
+        - message
+        - body
+      properties:
+        error:
+          type: boolean
+          enum:
+            - false
+        message:
+          type: string
+          enum:
+            - ""
+        body:
+          type: object
+          required:
+            - users
+            - total
+            - zoneConfig
+            - extraData
+          properties:
+            users:
+              type: array
+              items:
+                type: object
+                required:
+                  - userId
+                  - userName
+                  - profileImageUrl
+                  - userComment
+                  - following
+                  - followed
+                  - isBlocking
+                  - isMypixiv
+                  - illusts
+                  - novels
+                  - acceptRequest
+                properties:
+                  userId:
+                    type: string
+                    pattern: ^[0-9]$
+                  userName:
+                    type: string
+                  profileImageUrl:
+                    type: string
+                    format: url
+                  userComment:
+                    type: string
+                  following:
+                    type: boolean
+                    default: false
+                  followed:
+                    type: boolean
+                    default: false
+                  isBlocking:
+                    type: boolean
+                    default: false
+                  isMypixiv:
+                    type: boolean
+                    default: false
+                  illusts:
+                    type: array
+                    items:
+                      type: object
+                      nullable: true
+                      required:
+                        - id
+                        - title
+                        - illustType
+                        - xRestrict
+                        - restrict
+                        - sl
+                        - url
+                        - description
+                        - tags
+                        - userId
+                        - userName
+                        - width
+                        - height
+                        - pageCount
+                        - isBookmarkable
+                        - bookmarkData
+                        - alt
+                        - titleCaptionTranslation
+                        - createDate
+                        - updateDate
+                        - isUnlisted
+                        - isMasked
+                        - profileImageUrl
+                      properties:
+                        id:
+                          type: string
+                          pattern: ^[0-9]{2,9}$
+                        title:
+                          type: string
+                        illustType:
+                          type: number
+                        xRestrict:
+                          type: number
+                        restrict:
+                          type: number
+                        sl:
+                          type: number
+                        url:
+                          type: string
+                          format: url
+                        description:
+                          type: string
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                        userId:
+                          type: string
+                          pattern: ^[0-9]$
+                        userName:
+                          type: string
+                        width:
+                          type: number
+                        height:
+                          type: number
+                        pageCount:
+                          type: number
+                        isBookmarkable:
+                          type: boolean
+                          default: true
+                        bookmarkData:
+                          nullable: true
+                        alt:
+                          type: string
+                        titleCaptionTranslation:
+                          type: object
+                          required:
+                            - workTitle
+                            - workCaption
+                          properties:
+                            workTitle:
+                              nullable: true
+                            workCaption:
+                              nullable: true
+                        createDate:
+                          type: string
+                          format: date-time
+                        updateDate:
+                          type: string
+                          format: date-time
+                        isUnlisted:
+                          type: boolean
+                          default: false
+                        isMasked:
+                          type: boolean
+                          default: false
+                        profileImageUrl:
+                          type: string
+                          format: url
+                  novels:
+                    type: array
+                    items:
+                      nullable: true
+                  acceptRequest:
+                    type: boolean
+                    default: false
+            total:
+              type: number
+            zoneConfig:
+              type: object
+              required:
+                - header
+                - footer
+                - logo
+              properties:
+                header:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                footer:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+                logo:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+              patternProperties:
+                ^[0-9]*x[0-9]*$:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    url:
+                      type: string
+                      format: url
+            extraData:
+              type: object
+              required:
+                - meta
+              properties:
+                meta:
+                  type: object
+                  required:
+                    - title
+                    - description
+                    - canonical
+                    - ogp
+                    - twitter
+                    - alternateLanguages
+                    - descriptionHeader
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    canonical:
+                      type: string
+                      format: url
+                    ogp:
+                      type: object
+                      required:
+                        - description
+                        - image
+                        - title
+                        - type
+                      properties:
+                        description:
+                          type: string
+                        image:
+                          type: string
+                          format: url
+                        title:
+                          type: string
+                        type:
+                          type: string
+                    twitter:
+                      type: object
+                      required:
+                        - description
+                        - image
+                        - title
+                        - card
+                      properties:
+                        description:
+                          type: string
+                        image:
+                          type: string
+                          format: url
+                        title:
+                          type: string
+                        card:
+                          type: string
+                    alternateLanguages:
+                      type: object
+                      required:
+                        - ja
+                        - en
+                      properties:
+                        ja:
+                          type: string
+                          format: url
+                        en:
+                          type: string
+                          format: url
+                    descriptionHeader:
+                      type: string
+    ajax_user_works_latest:
+      type: object
+      required:
+        - error
+        - message
+        - body
+      properties:
+        error:
+          type: boolean
+          enum:
+            - false
+        message:
+          type: string
+          enum:
+            - ""
+        body:
+          type: object
+          required:
+            - illusts
+            - novels
+          properties:
+            illusts:
+              type: object
+              patternProperties:
+                ^[0-9]{2,9}$:
+                  type: object
+                  required:
+                    - id
+                    - title
+                    - illustType
+                    - xRestrict
+                    - restrict
+                    - sl
+                    - url
+                    - description
+                    - tags
+                    - userId
+                    - userName
+                    - width
+                    - height
+                    - pageCount
+                    - isBookmarkable
+                    - bookmarkData
+                    - alt
+                    - titleCaptionTranslation
+                    - createDate
+                    - updateDate
+                    - isUnlisted
+                    - isMasked
+                    - profileImageUrl
+                  properties:
+                    id:
+                      type: string
+                      pattern: ^[0-9]{2,9}$
+                    title:
+                      type: string
+                    illustType:
+                      type: number
+                    xRestrict:
+                      type: number
+                    restrict:
+                      type: number
+                    sl:
+                      type: number
+                    url:
+                      type: string
+                      format: url
+                    description:
+                      type: string
+                    tags:
+                      type: array
+                      items:
+                        type: string
+                    userId:
+                      type: string
+                      pattern: ^[0-9]$
+                    userName:
+                      type: string
+                    width:
+                      type: number
+                    height:
+                      type: number
+                    pageCount:
+                      type: number
+                    isBookmarkable:
+                      type: boolean
+                      default: true
+                    bookmarkData:
+                      nullable: true
+                    alt:
+                      type: string
+                    titleCaptionTranslation:
+                      type: object
+                      required:
+                        - workTitle
+                        - workCaption
+                      properties:
+                        workTitle:
+                          nullable: true
+                        workCaption:
+                          nullable: true
+                    createDate:
+                      type: string
+                      format: date-time
+                    updateDate:
+                      type: string
+                      format: date-time
+                    isUnlisted:
+                      type: boolean
+                      default: false
+                    isMasked:
+                      type: boolean
+                      default: false
+                    profileImageUrl:
+                      type: string
+                      format: url
+            novels:
+              type: array
+              items:
+                type: object
+                nullable: true
 tags:
   - name: Top page
     description: Get the information in the top page.
@@ -1847,9 +2278,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_404'
-  /ajax/top/user/{USER_ID}:
+  /ajax/user/{USER_ID}:
     get:
-      operationId: ajax_top_user_short
+      operationId: ajax_user_short
       tags:
         - User Information
       summary: Get user information (short)
@@ -1879,7 +2310,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ajax_top_user_short'
+                $ref: '#/components/schemas/ajax_user_short'
         '403':
           description: A JSON of error 403 response
           content:
@@ -1892,9 +2323,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_404_user'
-  /ajax/top/user/{USER_ID}?full=1:
+  /ajax/user/{USER_ID}?full=1:
     get:
-      operationId: ajax_top_user_full
+      operationId: ajax_user_full
       tags:
         - User Information
       summary: Get user information (full)
@@ -1924,7 +2355,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ajax_top_user_full'
+                $ref: '#/components/schemas/ajax_user_full'
         '403':
           description: A JSON of error 403 response
           content:
@@ -1937,9 +2368,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_404_user'
-  /ajax/top/user/{USER_ID}/profile/all:
+  /ajax/user/{USER_ID}/profile/all:
     get:
-      operationId: ajax_top_user_focus_on_artwork
+      operationId: ajax_user_focus_on_artwork
       tags:
         - User Information
       summary: Get user information (focus on artwork)
@@ -1969,7 +2400,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ajax_top_user_focus_on_artwork'
+                $ref: '#/components/schemas/ajax_user_focus_on_artwork'
         '403':
           description: A JSON of error 403 response
           content:
@@ -1982,9 +2413,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/error_404_user'
-  /ajax/top/user/{USER_ID}/following:
+  /ajax/user/{USER_ID}/following:
     get:
-      operationId: ajax_top_user_following
+      operationId: ajax_user_following
       tags:
         - User Information
       summary: Get following users
@@ -2042,7 +2473,116 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ajax_top_user_following'
+                $ref: '#/components/schemas/ajax_user_following'
+        '403':
+          description: A JSON of error 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_403'
+        '404':
+          description: A JSON of error 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_404_user'
+  /ajax/user/{USER_ID}/followers:
+    get:
+      operationId: ajax_user_followers
+      tags:
+        - User Information
+      summary: Get user's followers
+      description: Get user's followers.
+      security:
+        - Cookie_Auth: []
+        - CSRF_Token_Auth: []
+      parameters:
+        - name: Referer
+          in: header
+          description: HTTP Referer Header
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: string
+            enum:
+              - https://www.pixiv.net/
+        - name: USER_ID
+          in: path
+          description: pixiv User ID
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+        - name: offset
+          in: query
+          description: Offset results
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+        - name: limit
+          in: query
+          description: Results limit
+          required: false
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A JSON of normal response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ajax_user_followers'
+        '403':
+          description: A JSON of error 403 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_403'
+        '404':
+          description: A JSON of error 404 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_404_user'
+  /ajax/user/{USER_ID}/works/latest:
+    get:
+      operationId: ajax_user_works_latest
+      tags:
+        - User Information
+      summary: Get user latest artworks
+      description: Get the latest artworks of users.
+      parameters:
+        - name: Referer
+          in: header
+          description: HTTP Referer Header
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: string
+            enum:
+              - https://www.pixiv.net/
+        - name: USER_ID
+          in: path
+          description: pixiv User ID
+          required: true
+          deprecated: false
+          allowEmptyValue: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A JSON of normal response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ajax_user_works_latest'
         '403':
           description: A JSON of error 403 response
           content:
