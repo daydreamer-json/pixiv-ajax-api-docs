@@ -2267,7 +2267,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ajax_top_illust'
                 example:
-                  $ref: '../json/example_response/ajax/top/illust.json'
+                  $ref: 'https://raw.githubusercontent.com/daydreamer-json/pixiv-ajax-api-docs/main/json/example_response/ajax/top/illust.json'
         '403':
           description: A JSON of error 403 response
           content:
