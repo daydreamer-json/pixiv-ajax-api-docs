@@ -489,6 +489,8 @@ components:
                         default: 0
                       collaborateUserSamples:
                         type: array
+                        items:
+                          nullable: true
                   postWork:
                     type: object
                     required:
@@ -607,6 +609,8 @@ components:
                     type: number
                 mypixiv:
                   type: array
+                  items:
+                    nullable: true
                 recommend:
                   type: object
                   required:
@@ -2360,7 +2364,8 @@ components:
             - false
         body:
           type: array
-          nullable: true
+          items:
+            nullable: true
 tags:
   - name: Top page
     description: Get the information in the top page.
