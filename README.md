@@ -96,11 +96,7 @@ The pixiv Ajax API **does probably not support CORS** and there is no `Access-Co
 
 Authorization is required to use some parameters of the pixiv Ajax API. 
 
-### Authorization Method 1 (best)
-
-The best authorization method is to use [Method 2](#authorization-method-2) and [Method 3](#authorization-method-3) together.
-
-### Authorization Method 2
+### Authorization Method 1
 
 First, log in to pixiv with a browser and get the Cookie data. Then, add the saved Cookie data to the request header to the API and send. (`Cookie: {RAW_COOKIE_DATA}`) 
 
@@ -108,11 +104,13 @@ Cookie data can be obtained using Chrome/Firefox developer tools. For iOS, you c
 
 There are some endpoints that cannot be used by this method alone. For example, the endpoint that uses the `POST`.
 
-### Authorization Method 3
+### Authorization Method 2
 
-First, log in to pixiv with a browser and get the `x-csrf-token` data. Then, add the saved `x-csrf-token` data to the request header to the API and send. (`x-csrf-token: {X-CSRF-TOKEN}`)
+First, log in to pixiv with a browser and get the `PHPSESSID` data. Then, add the saved `PHPSESSID` data to the request header to the API and send. (`Cookie: PHPSESSID={PHPSESSID}`)
 
-`x-csrf-token` data can be obtained using Chrome/Firefox developer tools. For iOS, you can use [Proxyman](https://apps.apple.com/jp/app/id1551292695) to get the `x-csrf-token` data.
+`PHPSESSID` data can be obtained using Chrome/Firefox developer tools. For iOS, you can use [Proxyman](https://apps.apple.com/jp/app/id1551292695) to get the `PHPSESSID` data.
+
+Thanks to [@X-Gorn](https://github.com/X-Gorn) ([#1](https://github.com/daydreamer-json/pixiv-ajax-api-docs/issues/1))
 
 There are some endpoints that cannot be used by this method alone.
 
