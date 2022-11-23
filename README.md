@@ -13,9 +13,9 @@ OpenAPI Documents --> *Coming soon*
   * [Ajax API Base URL](#ajax-api-base-url)
   * [CORS](#cors)
   * [Authorization](#authorization)
-    + [Authorization Method 1 (best)](#authorization-method-1-best)
+    + [User-Agent](#user-agent)
+    + [Authorization Method 1](#authorization-method-1)
     + [Authorization Method 2](#authorization-method-2)
-    + [Authorization Method 3](#authorization-method-3)
   * [Top Page](#top-page)
     + [Get top page artworks](#get-top-page-artworks)
   * [User Information](#user-information)
@@ -95,6 +95,18 @@ The pixiv Ajax API **does probably not support CORS** and there is no `Access-Co
 ## Authorization
 
 Authorization is required to use some parameters of the pixiv Ajax API. 
+
+### User-Agent
+
+I recommend specifying a User-Agent when sending requests to the API. (`User-Agent: {USER-AGENT}`)
+
+Here is an example of User-Agent:
+
+```plaintext
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+```
+
+(Windows 10 64-bit, Chrome v104)
 
 ### Authorization Method 1
 
