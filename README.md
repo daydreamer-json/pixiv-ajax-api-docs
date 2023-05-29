@@ -2,6 +2,14 @@
 
 The details of the pixiv ajax API are shown below.
 
+---
+
+**This repository and documentation have been unmaintained and neglected for a long time. During the unmaintained period, the pixiv Ajax API has undergone numerous specification changes, which has reduced its reliability.**
+
+**For this reason, I plan to rewrite this document. Please wait for a while.**
+
+---
+
 OpenAPI Documents --> *Coming soon*
 
 ---
